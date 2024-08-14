@@ -10,6 +10,7 @@
         height: auto;
         border: 1px solid black;
         margin-top: 100px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       }
   </style>
 </head>
@@ -58,19 +59,19 @@
                     <form class="forms-sample" action="/admin/addProduct" method="post" enctype="multipart/form-data">
                       <div class="form-group">
                         <label for="exampleInputUsername1">Product Name</label>
-                        <input type="text" class="form-control" id="exampleInputUsername1" name="Pname" placeholder="kids cloth" />
+                        <input type="text" class="form-control" id="exampleInputUsername1" name="Pname" placeholder="kids cloth" required />
                       </div> 
                       <div class="form-group">
                         <label for="exampleInputEmail1">Enter Details</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" name="Details" placeholder="description" />
+                        <input type="text" class="form-control" id="exampleInputEmail1" name="Details" placeholder="description"  required/>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Enter Price</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1" name="Price" placeholder="Enter price" />
+                        <input type="text" class="form-control" id="exampleInputPassword1" name="Price" placeholder="Enter price"  required/>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputConfirmPassword1">Upload Image</label>
-                        <input type="file" class="form-control" name="image" id="exampleInputConfirmPassword1" placeholder="Password" />
+                        <input type="file" class="form-control" name="image" id="exampleInputConfirmPassword1" placeholder="Password"  required/>
                       </div>
                       <div class="form-check form-check-flat form-check-primary">
                         <label class="form-check-label">
@@ -82,14 +83,16 @@
                   </div>
                 </div>
 
-          <div class="container tablebox" >
+          <div class="container tablebox">
+              <h3 style="text-align: center;background-color:black;color:white">Uploaded Images</h3>
               <table class="table">
   <thead>
     <tr>
   
       <th scope="col">Name</th>
-      <th scope="col">Description</th>
+      {{!-- <th scope="col">Description</th> --}}
       <th scope="col">Price</th>
+      <th scope="col">Images</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -98,9 +101,10 @@
     <tr>
      
       <td>{{Pname}}</td>
-      <td>{{Details}}</td>
+      {{!-- <td>{{Details}}</td> --}}
       <td>{{Price}}</td>
-       <th scope="row"><a href="/admin/delete/{{_id}}" class="btn btn-danger">Delete</a></th>
+      <td> <img src="/images/products/{{_id}}.jpg" alt="" style="height: 60px;width:60px"></td>
+       <th scope="row"><a href="/admin/delete/{{_id}}" class="btn btn-outline-danger">Delete</a></th>
     </tr>  
     {{/each}}
   </tbody>
