@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+      .tablebox{
+        width: 95%;
+        height: auto;
+        border: 1px solid black;
+        margin-top: 100px;
+      }
+  </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -73,6 +81,31 @@
                     </form>
                   </div>
                 </div>
+
+          <div class="container tablebox" >
+              <table class="table">
+  <thead>
+    <tr>
+  
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each cloths}}
+    <tr>
+     
+      <td>{{Pname}}</td>
+      <td>{{Details}}</td>
+      <td>{{Price}}</td>
+       <th scope="row"><a href="/admin/delete/{{_id}}" class="btn btn-danger">Delete</a></th>
+    </tr>  
+    {{/each}}
+  </tbody>
+</table>
+          </div>
   
 </body>
 </html>

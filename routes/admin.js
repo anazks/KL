@@ -8,11 +8,12 @@ router.get('/', function(req, res, next) {
 });
 router.get('/home',async function(req,res){
     try {
-      let cloths = await clothModel.find()
+      console.log("-----home")
+      let cloths = await clothModel.find({})
       console.log(cloths,"-----")
       res.render('admin/Home',{cloths})
     } catch (error) {
-      
+      console.log(error)
     }
    
 })
